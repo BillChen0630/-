@@ -64,7 +64,10 @@ class NumIn{
         }
         for(int j = 0; j<LON ; j++){
             if(Shuzi[c] == 0){
-                if(Shuzi[c+1] == 0 || b%4 == 1){
+                if(Shuzi[c-1] == 0 ){
+                    dui = true;
+                }
+                if(Shuzi[c+1] == 0 || b%4 == 1 ){
                     dui = false;
                 }else{dui = true;}
             }else{dui = true;}
@@ -81,9 +84,12 @@ class NumIn{
             a +=1;
             break;
             }
+            //System.out.println(b);
             if(b%4 == 1 && Shuzi[c] == 0){
-                if(Shuzi[c-3]+Shuzi[c-2]+Shuzi[c-1]+Shuzi[c] == 0)
-                a--;
+                if(c > 3){
+                if(Shuzi[c-3]+Shuzi[c-2]+Shuzi[c-1]+Shuzi[c] == 0){
+                a--;}
+                }else{}
             }
             b--;
             c++;
@@ -102,7 +108,7 @@ class NumIn{
 }
 public class UNC{
     public static void main(String[] args){
-        System.out.println("请以xxxx.xx的形式输入\n若为整数请带上.00\n最大支持到兆位");
+        System.out.println("请以xxxx.xx的形式输入\n若为整数请带上.00\n最大支持到京位");
         NumIn NI = new NumIn();
         NI.PreasNum();
         for(String thing : NI.OutArr){
